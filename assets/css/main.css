@@ -2941,33 +2941,6 @@ input, select, textarea {
 			background-color: #2e3450;
 		}
 
-			.spotlights > section > .image {
-				background-position: center center;
-				background-size: cover;
-				border-radius: 0;
-				display: block;
-				position: relative;
-				width: 30%;
-			}
-
-				.spotlights > section > .image img {
-					border-radius: 0;
-					display: block;
-					width: 100%;
-				}
-
-				.spotlights > section > .image:before {
-					background: rgba(36, 41, 67, 0.9);
-					content: '';
-					display: block;
-					height: 100%;
-					left: 0;
-					opacity: 0;
-					position: absolute;
-					top: 0;
-					width: 100%;
-				}
-
 			.spotlights > section > .content {
 				display: -moz-flex;
 				display: -webkit-flex;
@@ -2986,28 +2959,33 @@ input, select, textarea {
 				-ms-align-items: center;
 				align-items: center;
 				padding: 2em 3em 0.1em 3em ;
-				width: 70%;
 			}
 
+				/*
 				.spotlights > section > .content > .inner {
+					background-color: whitesmoke;
 					margin: 0 auto;
 					max-width: 100%;
 					width: 65em;
 				}
+				*/
 
-			.spotlights > section:nth-child(2n) {
-				-moz-flex-direction: row-reverse;
-				-webkit-flex-direction: row-reverse;
-				-ms-flex-direction: row-reverse;
-				flex-direction: row-reverse;
-				background-color: #333856;
-			}
+				.spotlights > section > .content > img {
+					max-width: 100%;
+					max-height: 100%;
+					
+				}
 
-				.spotlights > section:nth-child(2n) > .content {
-					-moz-align-items: -moz-flex-end;
-					-webkit-align-items: -webkit-flex-end;
-					-ms-align-items: -ms-flex-end;
-					align-items: flex-end;
+				#portrait-img-2 {
+					width: 50%;
+				}
+
+				#portrait-img-3 {
+					height: 50%;
+				}
+
+				#portrait-img-4 {
+					height: 50%;
 				}
 
 		@media screen and (max-width: 1680px) {
@@ -3495,7 +3473,7 @@ input, select, textarea {
 		}
 
 		#banner.style2:after {
-			background-color: #8d82c4;
+			background-color: rgba(229, 214, 183, 1);
 		}
 
 		#banner.style3:after {
@@ -3589,37 +3567,108 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: #2a2f4a;
+		box-sizing: border-box;
+		background-color: white;
+		height: 100vh;
+		width: 100vw;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
-		#main > * {
-			border-top: solid 1px rgba(212, 212, 255, 0.1);
+	#main > .slideshow-container {
+		/*background-color: aqua;*/
+		box-sizing: border-box;
+		width: 70%;
+		height: 80%;
+
+		border: 1px solid #BFBFBF;
+		box-shadow: 10px 10px 5px #aaaaaa;
+
+		display: flex;
+		flex-direction: column;
+	}
+
+	#main > .slideshow-container > .slideshow-image {
+		box-sizing: border-box;
+		border-bottom-color: rgba(191, 191, 191, 0.3);
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		padding: 3%;
+
+		height: 75%;
+		width: 100%;
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#main > .slideshow-container > .slideshow-image > img {
+		display: none;
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	#main > .slideshow-container > .slideshow-image > .active {
+		display: block;
+		animation: fade-in 1.5s forwards;
+	}
+
+	#main > .slideshow-container > .slideshow-thumbnail {
+		/*background-color: bisque;*/
+		box-sizing: border-box;
+		padding: 1%;
+		height: 25%;
+		width: 100%;
+
+		display: flex;
+		flex-direction: row;
+
+		overflow-x: scroll;
+	}
+
+	#main > .slideshow-container > .slideshow-thumbnail > .thumbnail {
+		box-sizing: border-box;
+		margin: 0 7px;
+		border: 1px solid #BFBFBF;
+		opacity: 0.3;
+
+		width: 20%;
+		min-width: 120px;
+		height: 90%;
+		/*background-color: blue;*/
+
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	}
+
+	#main > .slideshow-container > .slideshow-thumbnail > .thumbnail:hover, .active{
+		cursor: pointer;
+		animation: fade-in 0.3s forwards;
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0.3;
 		}
 
-			#main > *:first-child {
-				border-top: 0;
-			}
-
-			#main > * > .inner {
-				padding: 4em 0 2em 0 ;
-				margin: 0 auto;
-				max-width: 65em;
-				width: calc(100% - 6em);
-			}
-
-				@media screen and (max-width: 736px) {
-
-					#main > * > .inner {
-						padding: 3em 0 1em 0 ;
-						width: calc(100% - 3em);
-					}
-
-				}
-
-		#main.alt {
-			background-color: transparent;
-			border-bottom: solid 1px rgba(212, 212, 255, 0.1);
+		100% {
+			opacity: 1.0;
 		}
+	}
+
+	#main > .slideshow-container > .slideshow-thumbnail > .thumbnail > img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+		
 
 /* Contact */
 
@@ -3802,7 +3851,7 @@ input, select, textarea {
 		box-shadow: none;
 		height: 100%;
 		left: 0;
-		opacity: 0;
+		opacity: 1;
 		overflow: hidden;
 		padding: 3em 2em;
 		position: fixed;
@@ -3824,7 +3873,7 @@ input, select, textarea {
 			-webkit-overflow-scrolling: touch;
 			max-width: 100%;
 			max-height: 100vh;
-			opacity: 0;
+			opacity: 1;
 			overflow: auto;
 			text-align: center;
 			visibility: hidden;
